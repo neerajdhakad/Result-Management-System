@@ -1,0 +1,108 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-12">
+
+      <!-- Delete Message Toast start -->
+      <div
+        *ngIf="deleteMessage"
+        class="alert alert-danger alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>Are you sure you want to delete ? </strong>
+        <div class="mt-2 pt-2 border-top">
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            (click)="delete(rollNumberId)"
+            style="margin-right: 10px;"
+          >
+            Yes
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            aria-label="Close"
+            data-bs-dismiss="alert"
+            (click)="deleteToast()"
+          >
+            No
+          </button>
+        </div>
+      </div>
+      <!-- Logout Message Toast start -->
+      <div
+        *ngIf="logOut"
+        class="alert alert-primary alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>Are you sure you want to Logout ? </strong>
+        <div class="mt-2 pt-2 border-top">
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-sm"
+            (click)="logout()"
+            style="margin-right: 10px;"
+          >
+            Yes
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary btn-sm"
+            aria-label="Close"
+            data-bs-dismiss="alert"
+            (click)="logoutToast()"
+          >
+            No
+          </button>
+        </div>
+    </div>
+
+    <h2 class="d-flex justify-content-between align-items-center">
+      Student List
+      <button class="btn btn-primary">
+        <a routerLink="/addstudent" style="color: white; text-decoration: none"
+          >Add Record</a
+        >
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark"
+        style="position: absolute; right: 0"
+        (click)="logoutToast()"
+      >
+        Logout
+      </button>
+    </h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Roll Number</th>
+          <th>Name</th>
+          <th>Date of Birth</th>
+          <th>Score</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of collection">
+          <td>{{ item.rollno }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.dob | date : "yyyy-MM-dd" }}</td>
+          <td>{{ item.score }}</td>
+          <td>
+            <button class="btn btn-link" routerLink="/edit/{{ item.rollno }}">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button
+              class="btn btn-link"
+              (click)="assignItemId(item.rollno)"
+              (click)="deleteToast()"
+            >
+              <i class="bi bi-trash" style="color: red"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

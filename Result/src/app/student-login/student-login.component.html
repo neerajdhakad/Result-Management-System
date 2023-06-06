@@ -1,0 +1,39 @@
+<div class="container">
+      <div class="row">
+        <div class="col-md-12 my-3">
+          <div class="d-flex justify-content-between mb-3">
+            <a routerLink="/">Back</a>
+          </div>
+        </div>
+      </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 ">
+        <h2 class="text-center">Find Result</h2>
+        <label *ngIf="error" style="color: red;">WRONG CREDENTIALS</label>
+        <form [formGroup]="studentLogin" (ngSubmit)="login()">
+
+          <div class="mb-3">
+          <label for="rollnumber" class="col-sm-2 col-form-label " >Name</label>
+          <input type="text" class="form-control" id="name" name="name" formControlName="name" >
+        <span class="error" *ngIf="name?.invalid && name?.touched">Name is required</span>
+          </div>
+          <div class="mb-3">
+            <label for="rollnumber" class="col-sm-2 col-form-label " >RollNo.</label>
+            
+              <input type="number" class="form-control" id="rollnumber" name="rollno"  formControlName="rollno" >
+            
+            <span class="error" *ngIf="rollno?.invalid && rollno?.touched">Rollno is required</span>
+          </div>
+          <div class="d-flex justify-content-between">
+              <button
+                type="submit" [disabled]="studentLogin.invalid" class="btn btn-primary"
+              >
+                Search
+              </button>
+              <button type="reset" class="btn btn-outline-dark">Clear</button>
+            </div>
+        </form>
+      </div>
+    </div>
+
+  

@@ -1,0 +1,35 @@
+  .navbar{
+    /* background-color: rgb(145, 219, 176); */
+    background-color: black;
+    margin-left: -10px;    
+  }
+  .navbar-brand{
+   color: black ;
+   font-weight: bold;
+   margin-left: 40%;
+  }
+  
+  input.ng-invalid{
+
+    border-left: 5px solid red;
+  }
+
+  input.ng-valid{
+
+    border-left: 5px solid rgb(0, 255, 51);
+  }
+
+  .error
+  {
+    color: red;
+  }
+
+  header{
+    padding: 10px;
+    background-color: black;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
